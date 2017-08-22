@@ -1,0 +1,32 @@
+.plitImage {
+  width: 100%;
+  max-width: 1000px;
+  height: 700px;
+  margin: 100px auto;
+  font-size: 0;
+  padding: 0;
+  background-size: cover;
+  min-height: 400px;
+  position: relative; }
+  .plitImage li {
+    width: 25%;
+    box-sizing: border-box;
+    height: 25%;
+    display: inline-block;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    transition: border 1s, border-radius 1s;
+    background-origin: border-box;
+    background: url(../img/1.jpeg) no-repeat;
+    background: url(https://img04.deviantart.net/959e/i/2015/194/9/c/1_sleepy_lake_by_zengel-d8pb5te.png) no-repeat;
+    border: 3px solid #ffffff;
+    background-clip: border-box; }
+  .plitImage.right li {
+    border: 0 solid #ffffff;
+    font-size: 10px;
+    border-radius: 0; }

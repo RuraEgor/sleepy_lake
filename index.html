@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="src/style.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+</head>
+<body>
+  <ul id="sortable" class="plitImage">
+  </ul>
+
+  <script>
+   var arr_elem = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+
+    var fl_row = 0;
+    var fl_column = 0;
+    var arr_all_elem = [];
+
+	for(i = 0; i < arr_elem.length; i++){
+
+        if( i % 4 ) { fl_row++; } else { fl_row = 0; }
+        if( i % 4 ) {  } else { fl_column++; }
+
+		//$(".plitImage").append('<li data-count='+arr_elem[i]+' style="background-position: -'+(fl_row * 175)+'px -'+(fl_column * 175)+'px"></li>');
+
+        arr_all_elem[arr_all_elem.length] = '<li data-count='+i+' style="background-position: -'+(fl_row * 250)+'px -'+(fl_column * 175)+'px"></li>';
+	}
+
+
+    arr_elem.sort(compareRandom);
+    
+    for(y = 0; y < arr_elem.length; y++){
+        $(".plitImage").append(arr_all_elem[arr_elem[y]]);
+    }
+
+
+    $("#sortable").sortable({
+    	//axis: "x",
+    	//containment:"#sortable",
+        //grid:[250,175],
+
+    	update: function(event, ui) {
+
+    		var notSovp = 1;
+
+			$(".plitImage li").each(function(){
+
+				var zn_index = $(this).index();
+				var zn_nom = $(this).attr("data-count");
+				if(zn_index != zn_nom) {
+					notSovp = 0;
+				}
+			});
+
+    		if(notSovp == 1) {
+    			$(".plitImage").addClass("right");
+    		}
+    	}
+    });
+
+    var count = $(".plitImage li").length;
+    var widt_wr = $(".plitImage").width();
+
+    var count2 = widt_wr / count;
+    count = 100 / count;
+    
+
+    var ii = 0;
+
+    $(".plitImage li").each(function(){
+    	//$(this).css({"width": count2+"px"});
+    	//$(this).find(".bg-item").css({"transform": "translateX(-"+ii+"%)" });
+    	ii = ii + count;
+    });
+
+    //====================
+    function compareRandom(a, b) {
+	  return Math.random() - 0.5;
+	}
+
+    
+  </script>
+</body>
+</html>
