@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-    <!-- css-files -->
-    <link rel="stylesheet" href="src/style.css">
-
-    <link rel="stylesheet" href="css/jquery-ui.min.css">
-
-    <link rel="stylesheet" href="css/fancybox/jquery.fancybox.css">
-    <link rel="stylesheet" href="css/libs/animate.css">
-    <!-- -------- -->
-
-    <!-- js-files -->
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-
-    <script src="js/jquery.scrollTo.js"></script>
-
-    <script src="js/jquery.fancybox.js"></script>
-    <script src="js/jquery.fancybox.pack.js"></script>
-    
-    <script src="js/velocity.min.js"></script>
-    <script src="js/wow.js"></script>
-    <!-- -------- -->
-
-</head>
-<body>
-    <div id="wrap">
-        <header id="header" class="header">
-            <h1 class="title-sect title-sect_head">Sleepy Lake</h1>
-            <nav>
-                a.h
-            </nav>
-        </header>
-        <main>
-            <section id="descriton" class="section desctiption"></section>
-            <section id="last-update" class="last-update"></section>
-            <section id="gallery" class="gallery"></section>
-            <section id="characters" class="characters">
-                <div class="sect-wr">
-                    <h2 class="title-sect title-sect_char">Основные Персонажи</h2>
-                    <div class="sect-wr sect-charact" style="background: url(img/characters/characters-bg.png) no-repeat">
-                        <div  href="#modal-form" class="char char-Betzen js-characters-modal">
-                            <!-- <object href="#modal-form" class="js-characters-modal" type="image/svg+xml" data="img/characters/char-Betzen.svg"></object> -->
-                            <!-- <svg>
-                                <use xlink:href="#tor" x="70" y="40" />
-                            </svg> -->
-                            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
@@ -83,37 +33,10 @@
   <path
      fill="rgba(0,0,0,0)"
      href="#modal-form"
+     stroke="yellow"
+     stroke-width="0"
      class="obj-svg-path-style js-characters-modal"
      d="M 120.07085,320.44987 C 115.11902,308.76352 102.57825,300.88234 97.453608,290.42951 97.259114,280.40723 97.06462,270.38495 96.870127,260.36267 83.637034,252.29582 63.758719,257.37133 60.945019,236.09843 58.273091,220.76575 63.729957,204.36535 77.381116,196.00656 80.263594,177.8198 66.939422,160.24378 59.916248,143.8613 56.602044,129.66058 40.891321,140.57237 53.776319,147.24737 58.165046,163.03541 67.185677,185.65052 45.902629,193 32.760272,187.36592 38.37632,165.72743 32.441325,155.95381 18.780544,158.4042 8.8300906,142.62595 1.3288486,135.63015 14.242434,124.18813 29.773936,116.30684 45.053833,108.42347 51.42537,97.00859 81.700627,101.92589 76.649847,87.701205 69.432991,84.502901 61.936447,85.340979 61.05156,90.481687 44.426099,86.30718 45.065957,64.582557 44.385408,49.5944 32.424305,41.846365 25.832416,9.8155508 41.873955,7.2549837 c 10.22173,15.8848103 22.498176,3.6446683 37.705533,2.9881603 12.329327,1.881436 22.400202,7.12959 29.139962,-6.1920418 20.87667,-11.161313 14.98413,31.3330208 8.4303,42.1855608 3.7854,17.813168 -3.35017,34.745756 -15.45699,43.905879 12.71701,7.24184 31.4941,5.043699 38.87962,19.906368 1.54538,15.18801 16.20819,25.79927 17.22762,39.75109 -14.14591,10.56352 8.7674,6.81455 13.93425,6.75011 8.38869,-3.4805 15.83259,-15.29628 26.78482,-13.3886 12.84691,-3.09881 17.06742,2.72833 17.06902,7.11405 12.17399,2.25989 24.62394,22.23443 4.70374,22.1678 -19.86249,0.19879 -38.04375,-6.05534 -56.75614,3.79915 -12.23937,11.12918 -28.65808,-2.84626 -30.82259,-6.81197 -10.50512,20.33339 15.76223,17.42746 29.2935,18.40189 18.01121,-4.42041 33.37378,15.19427 52.52397,14.54135 10.20749,5.92145 -26.50339,-3.03832 -10.26812,8.77135 6.83127,6.96307 23.95192,25.85517 3.57093,13.99524 -5.75496,1.53125 -7.65151,29.87184 -15.05925,30.40047 -5.33815,-15.91417 -30.19332,-32.95688 -31.90109,-7.04263 3.41706,15.41112 16.76519,28.0025 14.09481,45.87004 -0.17895,7.8322 4.40822,17.94012 -5.88859,21.15036 -17.71344,16.4007 -26.80235,-20.89818 -34.49352,-33.30351 0.86311,-7.10823 -6.97933,-35.36854 -4.10686,-13.91232 1.19395,20.20914 8.23189,38.85065 17.41907,56.69722 -8.25209,0 -16.50417,0 -24.75626,0 -1.02361,-1.51671 -2.04723,-3.03342 -3.07084,-4.55013 z"
      id="path33"
      inkscape:connector-curvature="0" />
 </svg>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="slider-art" class="section slider-art"></section>
-            <section id="puzzle-img" class="section puzzle-img"></section>
-            <section id="reviews" class="section reviews"></section>
-            <section id="wtite-me" class="section wtite-me"></section>
-        </main>
-        <footer id="footer" class="footer">
-            <div href="#modal-form" class="obj-svg-path-style js-characters-modal">77777777777777</div>     
-        </footer>
-    </div>
-
-    <!-- MODAL-WINDOW -->
-    <div id="modal-form">
-        <div class="modal-form">
-            <form>
-                <h2>777777777777777777777</h2>
-            </form>
-        </div>
-    </div>
-    <!-- END MODAL-WINDOW -->
-
-    <!-- js-files-script -->
-    <script src="js-script/script.js"></script>
-</body>
-</html>
