@@ -1,12 +1,85 @@
+@charset "utf-8";
+
+@import "_setting";
+
+html,body
+  //height: 100%
+
+
 body
+  background: $bgBody
+  margin: 0
+  padding: 0
+
+a
+  color: $colorLink
+  text-decoration: none
+  transition: all $trans
+
+  &:hover
+    color: $colorLink-h
+
+.section
+
+#wrap
+  height: 100%
 
 .sect-wr
-  margin: 20px auto
+  margin: 0 auto
+  padding: 10px 20px 30px
   max-width: 1200px
+  overflow: hidden
+  background: $bgBody
 
+.title-sect
+  font-size: 24px
+  padding: 10px
+  text-align: center
+  text-transform: uppercase
+  margin: 0
+  color: $color
+
+.bg_site
+  position: fixed
+  left: 0
+  right: 0
+  bottom: 0
+  top: 0
+  z-index: -10
+  height: 100vh
+  background-size: cover !important
+  background-position: center center !important
+
+  &::before
+    content: ""
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    background: rgba(0, 0, 0, 0.5)
+    z-index: -5
+
+
+
+
+//------- HEADER ------------------------------
+.header
+  
+.sect-wr_head
+  min-height: 300px
+  background-position: top center !important;
+  background-size: 65% auto !important
+  background-attachment: fixed !important
 
 
 //------- CHARACTERS ------------------------------
+
+
+//------- CHARACTERS ------------------------------
+.characters
+
+
 .sect-charact
   background-position: 0 0
   background-size: contain
@@ -14,6 +87,21 @@ body
   box-sizing: border-box
   width: 1024px
   height: 681px
+
+
+  &__bg
+    position: absolute
+    background: rgba(0, 0, 0, 0)
+    transition: all 0.7s
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    z-index: 5
+
+    &.active
+      background: rgba(0, 0, 0, 0.8)
+
 
 .char-Betzen
   position: absolute
@@ -37,10 +125,150 @@ body
       pointer-events: all
       stroke: yellow
       stroke-width: 0
+      transition: all 0.5s
 
       &:hover
         stroke-width: 2px
 
       &.active
         stroke-width: 2px
+        z-index: 10
 
+
+//======== SLIDER-ART ======================================================================================
+
+.sect-wr__slider-art
+  min-height: 400px
+
+#viewport
+  width: 100px
+  margin: auto
+  display: block
+
+
+.last-update
+  text-align: center
+
+  &__img
+    width: 100%
+
+
+#cube,
+#cube-cube
+  position: relative
+  margin-left:auto
+  margin-right:auto
+  margin-top: 140px
+  margin-bottom:auto
+  height: 70px
+    width: 70px
+  /*-webkit-transition: -webkit-transform 150ms;*/
+  -webkit-transform-style: preserve-3d
+  -webkit-transform: rotateX(0) rotateY(0)
+  transition: all 3s
+  pointer-events: none
+  transform-origin: 0 0 0 !important
+
+
+
+#imgCenter
+  transform-style: preserve-3d
+  height: 370px
+  width: 250px
+  transform: rotateX(0deg) rotateY(0deg) translateX(-140px) translateY(0px) translateZ(0px)
+  background: url(../img/pers.png) no-repeat
+  background-position: center top !important
+  background-size: contain !important
+  position: relative
+  margin-left: auto
+  margin-right: auto
+  top: -160px
+  left: 0px
+  transition: all 3s
+
+
+#cube.active
+  -webkit-transform: rotateX(-20deg) rotateY(20deg)
+  box-sizing: border-box
+  background-position: center top !important
+  background-size: cover !important
+
+
+#cube .cn-img
+  position: absolute
+  top: 0
+  left: 0
+  height: 140px
+  width: 200px
+  padding: 0px
+  background-color: rgba(50, 50, 50, 0.85)
+  font-size: 1em
+  line-height: 1em
+  color: #fff
+  border: 1px solid #555
+  border-radius: 3px
+  box-sizing: border-box
+  text-align: right
+  padding: 5px
+  pointer-events: all
+  transform-origin: 0 0 0 !important  
+
+
+#cube a
+  display: block
+  width: 100%
+  height: 100%
+
+#cube .cn-img
+  perspective-origin: 0% 0%;
+  -webkit-perspective-origin: 0% 0%;
+
+  transform-origin: 0% 0%;
+  -webkit-transform-origin: 0% 0%;
+  opacity: 0.9
+  background-position: center top !important;
+  background-size: cover !important
+  transition: transform 6s, opacity 1s
+  transform-origin: 0 0 0 !important
+
+
+#cube:hover > div
+  opacity: 0.25
+
+
+#cube > div:hover
+  opacity: 1 !important;
+
+
+#cube div span
+  display: inline-block
+  margin: auto
+  font-size: 20px
+  font-weight: bold
+  color: red
+
+#cube .center-line
+  height: 200px
+  width: 20px
+  background: red
+  transform: rotateX(0deg) rotateY(0deg) translateX(0px) translateY(-50px) translateZ(0px)
+  -webkit-transform: rotateX(0deg) rotateY(0deg) translateX(0px) translateY(-50px) translateZ(0px)
+
+#cube .cn-img.act-el
+  -webkit-transform: rotateX(8deg) rotateY(-19deg) translateX(-180px) translateY(-9px) translateZ(350px)
+  opacity: 1
+  width: 400px
+  height: 350px
+
+.wr_img_sl
+  display: none
+
+
+
+.slider-art__list-img
+  display: none
+
+//========  FOOTER  ========================================================================================
+
+#footer
+  height: 1000px
