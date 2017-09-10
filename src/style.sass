@@ -33,7 +33,7 @@ a
 
 .title-sect
   font-size: 24px
-  padding: 10px
+  padding: 10px 10px 20px
   text-align: center
   text-transform: uppercase
   margin: 0
@@ -57,10 +57,8 @@ a
     right: 0
     bottom: 0
     top: 0
-    background: rgba(0, 0, 0, 0.5)
+    background: rgba(0, 0, 0, 0.6)
     z-index: -5
-
-
 
 
 //------- HEADER ------------------------------
@@ -72,8 +70,110 @@ a
   background-size: 65% auto !important
   background-attachment: fixed !important
 
+.main-nav
+  visibility: visible;
+  display: flex;
+  width: 900px;
+  margin: auto;
+  justify-content: space-between;
 
-//------- CHARACTERS ------------------------------
+
+//------- DESCRIPTION ------------------------------
+.shape-img
+    shape-image-threshold: 0.2
+    shape-margin: 0px
+    background-position: center center !important
+
+.shape-img_1
+    width: 160px
+    height: 150px
+    float: left
+    background: url(../img/descrp-shape-1.png) no-repeat
+    -webkit-shape-outside: url(../img/descrp-shape-black-1.svg)
+    -moz-shape-outside: url(../img/descrp-shape-black-1.svg)
+    -o-shape-outside: url(../img/descrp-shape-black-1.svg)
+    shape-outside: url(../img/descrp-shape-black-1.svg)
+
+.shape-img_2
+    width: 255px
+    height: 355px
+    float: right
+    background: url(../img/descrp-shape-2.png) no-repeat
+    -webkit-shape-outside: url(../img/descrp-shape-black-2.svg)
+    -moz-shape-outside: url(../img/descrp-shape-black-2.svg)
+    -o-shape-outside: url(../img/descrp-shape-black-2.svg)
+    shape-outside: url(../img/descrp-shape-black-2.svg)
+
+.desctiption_text
+  color: #fff
+  font-size: 20px
+  line-height: 1.5
+
+
+//------- LAST-UPDATE -----------------------------
+.last-update__wr
+    background-position: 80% 20% !important
+    background-size: 180% !important
+
+.last-update__img
+    display: block
+    -webkit-filter: blur(10px)
+    -moz-filter: blur(10px)
+    filter: blur(10px)
+    opacity: 0
+    transition: all 3s
+
+.last-update__img.active
+    -webkit-filter: blur(0px)
+    -moz-filter: blur(0px)
+    filter: blur(0px)
+    opacity: 1
+
+
+//------- GALLERY ---------------------------------
+
+.gallery-list
+
+  &__height
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -10px
+
+  &__item
+    width: 20%
+    padding: 10px
+    box-sizing: border-box
+    transform-style: preserve-3d
+
+    &-wr
+      position: relative
+      padding-top: 80%
+      transform-style: preserve-3d
+      transform: rotateY(0deg)
+      transition: all 2s
+
+      &.active
+        transform: rotateY(180deg)
+        
+    &-img
+      display: block
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+      z-index: 5
+      box-sizing: border-box
+      border-radius: 10px
+      background-repeat: no-repeat;
+      background-size: cover
+      background-position: center
+      transition: all 1s
+      transform-style: preserve-3d
+
+      &-sec
+        transform: rotateY(180deg)
+    
 
 
 //------- CHARACTERS ------------------------------
@@ -161,15 +261,12 @@ a
   margin-top: 140px
   margin-bottom:auto
   height: 70px
-    width: 70px
-  /*-webkit-transition: -webkit-transform 150ms;*/
-  -webkit-transform-style: preserve-3d
-  -webkit-transform: rotateX(0) rotateY(0)
+  width: 70px
+  transform-style: preserve-3d
+  transform: translateX(50px) rotateX(0) rotateY(0)
   transition: all 3s
   pointer-events: none
   transform-origin: 0 0 0 !important
-
-
 
 #imgCenter
   transform-style: preserve-3d
@@ -264,11 +361,9 @@ a
   display: none
 
 
-
 .slider-art__list-img
   display: none
 
-//========  FOOTER  ========================================================================================
 
+//========  FOOTER  ========================================================================================
 #footer
-  height: 1000px
