@@ -37,9 +37,9 @@
 <div id="wrap">
     <div class="bg_site" style='background: url("img/bg-site.jpg") no-repeat;'></div>
     <header id="header" class="header">
-        <div class="sect-wr sect-wr_head" style='background: url("img/bg-header.png") no-repeat;'>
+        <div class="sect-wr bl-relative sect-wr_head" style='background: url("img/bg-header.png") no-repeat;'>
             <h1 class="title-sect title-sect_head">Sleepy Lake</h1>
-            <nav class="main-nav js-main-nav">
+            <nav class="main-nav js-main-nav main-nav__header">
                 <a href="#descriton" class="main-nav-ln">Описание комикса</a>
                 <a href="#last-update" class="main-nav-ln">Обновления</a>
                 <a href="#gallery" class="main-nav-ln">Галлерея</a>
@@ -57,8 +57,8 @@
             <div class="sect-wr">
                 <div>
                     <h2 class="title-sect title-sect_char">Описание комикса</h2>
-                    <div class="shape-img shape-img_1"></div>
-                    <div class="shape-img shape-img_2"></div>
+<!--                     <div class="shape-img shape-img_1"></div>
+                    <div class="shape-img shape-img_2"></div> -->
                     <p class="desctiption_text">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nam minus vitae exercitationem,
                         non
@@ -115,8 +115,9 @@
                     </div>
                     <div class="gallery-list">
                         <div class="gallery-list__height">
+                        <!--
                             <div class="gallery-list__item">
-                                <div class="gallery-list__item-wr active">
+                                <div class="gallery-list__item-wr">
                                     <a href="comics/gallery/chapter_1/1.png"
                                 class="gallery-list__item-img fanc-gall-img gallery-list__item-img_ins-fr" 
                                 style='background-image: url(comics/gallery/chapter_1/1.png)'
@@ -127,24 +128,14 @@
                                 rel="group-sec"></a>
                                 </div>
                             </div>
-                            <div class="gallery-list__item">
-                                <div class="gallery-list__item-wr active">
-                                    <a href="comics/gallery/chapter_1/2.png"
-                                class="gallery-list__item-img fanc-gall-img gallery-list__item-img_ins-fr" 
-                                style='background-image: url(comics/gallery/chapter_1/2.png)'
-                                rel="group-fr"></a>
-                                <a href="comics/gallery/chapter_1/4.png"
-                                class="gallery-list__item-img fanc-gall-img gallery-list__item-img-sec" 
-                                style='background-image: url(comics/gallery/chapter_1/4.png)'
-                                rel="group-sec"></a>
-                                </div>
-                            </div>
+                            -->
                         </div>
                     </div>
                 </div>
                 <div class="gallery-chapter-list">
                     <div class="gallery-chapter-list__item"></div>
                 </div>
+                <div class="gallery__bl-hide"></div>
                 </div>
             </div>
         </section>
@@ -153,7 +144,7 @@
         <!--    CHARACTERS    -->
         <section id="characters" class="section characters">
             <div class="sect-wr">
-                <div class="wow fadeIn" data-wow-delay="0.5s" data-wow-duration="2s">
+                <div class="wow fadeIn bl-relative" data-wow-delay="0.5s" data-wow-duration="2s">
                     <h2 class="title-sect title-sect_char">Основные Персонажи</h2>
                     <div class="sect-wr sect-charact"
                          style="background: url(img/characters/characters-bg.png) no-repeat">
@@ -199,7 +190,23 @@
                             </svg>
 
                         </div>
+                        <div class="characters-modal-descr">
+                            <div class="close js-close"></div>
+                            <div class="characters-modal-descr__wr">
+                                <div class="characters-modal-descr__img">
+                                    <div class="characters-modal-descr__cont-img"
+                                    style="background: url('img/characters/mis-Betzen.png') no-repeat;" ></div>
+                                </div>
+                                <div class="characters-modal-descr__text">
+                                    <div class="characters-modal-descr__name">Miss Betzen</div>
+                                    <div class="characters-modal-descr__charact-descr">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima voluptatibus, corporis placeat excepturi consequuntur nobis pariatur possimus porro necessitatibus blanditiis quam doloribus modi molestias fugit esse nisi facere rerum ipsam ratione. Pariatur possimus porro necessitatibus blanditiis quam doloribus modi molestias fugit esse nisi facere rerum ipsam ratione.
+                                    </div>
+                                </div>
+                            </div>
                     </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -209,6 +216,7 @@
         <section id="slider-art" class="section slider-art">
             <div class="sect-wr sect-wr__slider-art">
                 <div class="wow fadeIn slider-art-wow" data-wow-delay="0.5s" data-wow-duration="2s">
+                <h2 class="title-sect title-sect_char">Арт</h2>
                     <!--                 <article id="slider-art__area">
                                         <section id="slider-art__scene">
                                             <section id="slider-art__list"></section>
@@ -253,7 +261,17 @@
         <!--    END SLIDER-ART    -->
 
         <!--    PUZZLE-IMG    -->
-        <section id="puzzle-img" class="section puzzle-img"></section>
+        <section id="puzzle-img" class="section puzzle-img">
+            <div class="sect-wr">
+                <div class="wow fadeIn bl-relative" data-wow-delay="0.5s" data-wow-duration="2s">
+                <h2 class="title-sect title-sect_char">Собери картинку</h2>
+                    <ul id="sortable" class="plitImage"></ul>
+                </div>
+                <div class="puzzle-img__bl-hide">
+                    <img class="puzzle-img__img" src="img/2.png" alt="">
+                </div>
+            </div>
+        </section>
         <!--    END PUZZLE-IMG    -->
 
         <!--    REVIEWS    -->
@@ -264,14 +282,14 @@
         <section id="write-me" class="section wtite-me"></section>
         <!--    END WRITE-ME    -->
     </main>
-    <footer id="footer" class="footer wow" data-wow-offset="200" data-wow-delay="0.5s">
+    <footer id="footer" class="footer">
         <div class="sect-wr">
             <nav class="main-nav js-main-nav">
-                <a href="#descriton" class="main-nav-ln">Вниз</a>
-                <a href="#last-update" class="main-nav-ln">Вниз</a>
-                <a href="#gallery" class="main-nav-ln">Вниз</a>
-                <a href="#characters" class="main-nav-ln">Вниз</a>
-                <a href="#slider-art" class="main-nav-ln">Вниз</a>
+                <a href="#descriton" class="main-nav-ln">Описание комикса</a>
+                <a href="#last-update" class="main-nav-ln">Обновления</a>
+                <a href="#gallery" class="main-nav-ln">Галлерея</a>
+                <a href="#characters" class="main-nav-ln">Персонажи</a>
+                <a href="#slider-art" class="main-nav-ln">Арт</a>
                 <a href="#puzzle-img" class="main-nav-ln">Вниз</a>
                 <a href="#wtite-me" class="main-nav-ln">Вниз</a>
                 <a href="#footer" class="main-nav-ln">Вниз</a>
