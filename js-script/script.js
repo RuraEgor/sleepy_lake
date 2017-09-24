@@ -24,6 +24,14 @@ $(function () {
 
 				setTimeout("startSl()", 2000);
 			}
+
+			//------- art-slider
+			if ( $(box).hasClass("gallery-wow") ) {
+
+				setTimeout('$(".gallery-list").removeClass("begin")', 3000);
+			}
+
+
 			
 		}
 	});
@@ -112,17 +120,19 @@ $(function () {
 
 		for (var ii = 0; ii < galleryImg.length; ii++) {
 
-			galleryItem = '<div class="gallery-list__item">'+
+			var znTrans = Math.random() * 1 + 0.7;
+
+			galleryItem = '<div class="gallery-list__item" style="transition: all '+znTrans.toFixed(1)+'s">'+
                                 '<div class="gallery-list__item-wr">'+
-                                    '<a href="comics/gallery/' + galleryImg[ii] + '"'+
-                                'class="gallery-list__item-img fanc-gall-img gallery-list__item-img_ins-fr" '+
-                                'style="background-image: url(comics/gallery-min/' + galleryImg[ii] + ')"'+
-                                'rel="group-fr"></a>'+
-                                // '<a href="comics/gallery/' + galleryImg[ii] + '"'+
-                                // 'class="gallery-list__item-img fanc-gall-img gallery-list__item-img-sec" '
-                                // 'style="background-image: url(comics/gallery/' + galleryImg[ii] + ')"'
-                                // 'rel="group-sec"></a>'
-                                // '</div>'
+                                 	'<a href="comics/gallery/' + galleryImg[ii] + '"'+
+                                	'class="gallery-list__item-img fanc-gall-img gallery-list__item-img_ins-fr" '+
+                                	'style="background-image: url(comics/gallery-min/' + galleryImg[ii] + ')"'+
+                                	'rel="group-fr"></a>'+
+                                	'<a href="comics/gallery/' + galleryImg[ii] + '"'+
+                                	'class="gallery-list__item-img fanc-gall-img gallery-list__item-img-sec" ' +
+                                	'style="background-image: url(comics/gallery-min/' + galleryImg[ii] + ')"' +
+                                	'rel="group-sec"></a>' +
+                                '</div>' +
                             '</div>';
 
 
@@ -130,9 +140,61 @@ $(function () {
                             
 		}
 
-	$(".fanc-gall-img").fancybox();
+
+		$(".fanc-gall-img").fancybox();
+
+	});
 
 
+//---------------------
+
+	$(".js_gallery-chapter").on("click", function(){
+
+		var znChapter = $(this).attr("id");
+
+		$('.gallery__bl-hide').load('comics/' + znChapter + '.html #cont-imgs', function(){
+
+			var galleryImg = [];
+			var galleryItem ;
+
+			$('.gallery__bl-hide img').each(function(){
+
+				galleryImg[galleryImg.length] = $(this).attr("src");
+			});
+
+
+			var count_img = 0;
+
+			if( $(".gallery-list").hasClass("active") ) {
+
+				$('.gallery-list__height .gallery-list__item').each(function(){
+
+					$(this).find(".gallery-list__item-img-sec").attr("href", "mmmmmmmmmmmmmmmmm");
+					$(this).find(".gallery-list__item-img-sec").attr("style", 'background-image: url(comics/gallery-min/' + galleryImg[count_img] + ')');
+
+					count_img++;
+				});
+
+				$(".gallery-list").removeClass("active");
+
+			} else {
+
+				$('.gallery-list__height .gallery-list__item').each(function(){
+
+					$(this).find(".gallery-list__item-img-sec").attr("href", "comics/gallery/"+galleryImg[count_img] );
+					$(this).find(".gallery-list__item-img-sec").attr("style", 'background-image: url(comics/gallery-min/' + galleryImg[count_img] + ')');
+
+					count_img++;
+				});
+
+				$(".gallery-list__item-img_ins-fr").attr("rel");
+
+				$(".gallery-list").addClass("active");
+			}
+
+			$(".fanc-gall-img").fancybox();
+
+		});
 	});
 
 
@@ -210,6 +272,8 @@ $(function () {
 //----  PLITCA-IMG
 //------------------------------------------------------------------
 
+$(function(){
+
 var arr_elem = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 var pazzlElem = {};
@@ -219,8 +283,8 @@ pazzlElem.plitWidth = $(".puzzle-img__img").width();
 
 pazzlElem.imgSrc = $(".puzzle-img__img").attr("src");
 
-pazzlElem.plitHeight_4 = pazzlElem.plitHeight / 4;
-pazzlElem.plitWidth_4 = pazzlElem.plitWidth / 4;
+pazzlElem.plitHeight_pl = pazzlElem.plitHeight / 4;
+pazzlElem.plitWidth_pl = pazzlElem.plitWidth / 4;
 
 
 $(".plitImage").css({
@@ -243,7 +307,7 @@ $(".plitImage").css({
         if( i % 4 ) { fl_row++; } else { fl_row = 0; }
         if( iy % 4 ) {  } else { fl_column++; }
 
-        arr_all_elem[arr_all_elem.length] = '<li data-count='+i+' style="background: url(' + pazzlElem.imgSrc + '); background-position: -'+(fl_row * pazzlElem.plitWidth_4)+'px -'+(fl_column * pazzlElem.plitHeight_4)+'px"></li>';
+        arr_all_elem[arr_all_elem.length] = '<li data-count='+i+' style="background: url(' + pazzlElem.imgSrc + '); background-position: -'+(fl_row * pazzlElem.plitWidth_pl)+'px -'+(fl_column * pazzlElem.plitHeight_pl)+'px"></li>';
 	}
 
 
@@ -303,6 +367,7 @@ $(".plitImage").css({
     var count2 = widt_wr / count;
     count = 100 / count;
 
+});
 //====  END PLITCA-IMG
 //========================================================================
 

@@ -70,7 +70,7 @@ a
 .sect-wr_head
   min-height: 300px
   background-position: top center !important;
-  background-size: 65% auto !important
+  //background-size: 100% auto !important
   background-attachment: fixed !important
 
 .main-nav
@@ -139,22 +139,34 @@ a
 
 .last-update__img
     display: block
-    -webkit-filter: blur(10px)
-    -moz-filter: blur(10px)
-    filter: blur(10px)
+    // -webkit-filter: blur(10px)
+    // -moz-filter: blur(10px)
+    // filter: blur(10px)
     opacity: 0
     transition: all 3s
 
 .last-update__img.active
-    -webkit-filter: blur(0px)
-    -moz-filter: blur(0px)
-    filter: blur(0px)
+    // -webkit-filter: blur(0px)
+    // -moz-filter: blur(0px)
+    // filter: blur(0px)
     opacity: 1
 
 
 //------- GALLERY ---------------------------------
 
+.gallery-list.active
+
+  .gallery-list__item
+    transform: rotateY(180deg)
+
+.gallery-list.begin
+
+  .gallery-list__item
+    transform: rotateY(90deg)
+
+
 .gallery-list
+  transition: height 0.8s 
 
   &__height
     display: flex

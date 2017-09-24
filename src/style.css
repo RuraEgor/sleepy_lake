@@ -54,7 +54,6 @@ a {
 .sect-wr_head {
   min-height: 300px;
   background-position: top center !important;
-  background-size: 65% auto !important;
   background-attachment: fixed !important; }
 
 .main-nav {
@@ -117,54 +116,55 @@ a {
 
 .last-update__img {
   display: block;
-  -webkit-filter: blur(10px);
-  -moz-filter: blur(10px);
-  filter: blur(10px);
   opacity: 0;
   transition: all 3s; }
 
 .last-update__img.active {
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  filter: blur(0px);
   opacity: 1; }
 
-.gallery-list__height {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -10px; }
+.gallery-list.active .gallery-list__item {
+  transform: rotateY(180deg); }
 
-.gallery-list__item {
-  width: 20%;
-  padding: 10px;
-  box-sizing: border-box;
-  transform-style: preserve-3d; }
-  .gallery-list__item-wr {
-    position: relative;
-    padding-top: 80%;
-    transform-style: preserve-3d;
-    transform: rotateY(0deg);
-    transition: all 2s; }
-    .gallery-list__item-wr.active {
-      transform: rotateY(180deg); }
-  .gallery-list__item-img {
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 5;
+.gallery-list.begin .gallery-list__item {
+  transform: rotateY(90deg); }
+
+.gallery-list {
+  transition: height 0.8s; }
+  .gallery-list__height {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px; }
+  .gallery-list__item {
+    width: 20%;
+    padding: 10px;
     box-sizing: border-box;
-    border-radius: 10px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transition: all 1s;
     transform-style: preserve-3d; }
-    .gallery-list__item-img-sec {
-      transform: rotateY(180deg);
-      pointer-events: none; }
+    .gallery-list__item-wr {
+      position: relative;
+      padding-top: 80%;
+      transform-style: preserve-3d;
+      transform: rotateY(0deg);
+      transition: all 2s; }
+      .gallery-list__item-wr.active {
+        transform: rotateY(180deg); }
+    .gallery-list__item-img {
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 5;
+      box-sizing: border-box;
+      border-radius: 10px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transition: all 1s;
+      transform-style: preserve-3d; }
+      .gallery-list__item-img-sec {
+        transform: rotateY(180deg);
+        pointer-events: none; }
 
 .sect-charact {
   background-position: 0 0;
