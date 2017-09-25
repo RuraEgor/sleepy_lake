@@ -1,4 +1,5 @@
 /node_modules
+/src/*.css
 **/node_modules
 **/package.json
 **/gulpfile.js
