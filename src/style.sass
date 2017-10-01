@@ -11,6 +11,7 @@ body
   background: $bgBody
   margin: 0
   padding: 0
+  font-family: $fontFamCom
 
 a
   color: $colorLink
@@ -20,6 +21,10 @@ a
 
   &:hover
     color: $colorLink-h
+
+h1,h2,h3,h4,h5,h6
+  font-family: $fontFamH
+
 
 .bl-relative
   position: relative
@@ -70,19 +75,19 @@ a
   
 .sect-wr_head
   min-height: 300px
-  background-position: top center !important;
+  background-position: top center !important
   //background-size: 100% auto !important
   background-attachment: fixed !important
 
 .main-nav
-  visibility: visible;
-  display: flex;
-  width: 900px;
-  margin: auto;
-  justify-content: space-between;
+  visibility: visible
+  display: flex
+  width: 900px
+  margin: auto
+  justify-content: space-between
 
   a
-      font-size: 19px
+    font-size: 19px
 
 .title-sect_head
   position: absolute
@@ -90,6 +95,7 @@ a
   right: 120px
   z-index: 5
   font-size: 70px
+  font-family: $fontFamHead
 
 .main-nav__header
     position: absolute
@@ -157,25 +163,38 @@ a
 
 .gallery-list.active
 
+
   .gallery-list__item
     transform: rotateY(180deg)
 
+  .gallery-list__item.clCreat
+    transition: none !important
+    transform: rotateY(90deg) !important
+
+  .gallery-list__item.clDelete
+    transform: rotateY(90deg) !important
+
 .gallery-list.begin
+  transition: none
 
   .gallery-list__item
     transform: rotateY(90deg)
 
 
 .gallery-list
-  transition: height 0.8s 
+  transition: height 2s
+  overflow: hidden
+  box-sizing: border-box
 
   &__height
+    overflow: hidden
     display: flex
     flex-wrap: wrap
     margin: 0 -10px
+    box-sizing: border-box
 
   &__item
-    width: 20%
+    width: 16.6%
     padding: 10px
     box-sizing: border-box
     transform-style: preserve-3d
@@ -209,6 +228,13 @@ a
       &-sec
         transform: rotateY(180deg)
         pointer-events: none
+
+.gallery-list.active
+  .gallery-list__item-img_ins-fr
+    pointer-events: none
+
+  .gallery-list__item-img-sec
+    pointer-events: all      
     
 
 
@@ -269,6 +295,37 @@ a
       &.active
         stroke-width: 2px
         z-index: 10
+
+.close
+  position: absolute
+  right: 15px
+  top: 10px
+  z-index: 3
+  cursor: pointer
+  box-sizing: border-box
+  height: 25px
+  width: 25px
+  opacity: 1
+  transition: $trans opacity
+
+  &:hover
+    opacity: 0.7
+
+  &::before, &::after
+    content: ""
+    position: absolute
+    right: 0
+    left: 0
+    top: 50%
+    height: 2px
+    box-sizing: border-box
+    background: #ffffff
+
+  &::before
+    transform: rotate(45deg)
+
+  &::after
+    transform: rotate(-45deg)
 
 
 .characters-modal-descr
@@ -355,7 +412,7 @@ a
 //======== SLIDER-ART ======================================================================================
 
 .sect-wr__slider-art
-  min-height: 600px
+  min-height: 530px
 
 #viewport
   width: 100px
@@ -491,7 +548,6 @@ a
   min-height: 400px
   position: relative
 
-
   li
     width: 25%
     box-sizing: border-box
@@ -503,6 +559,8 @@ a
     border: 0
     overflow: hidden
     position: relative
+    left: 0
+    top: 0
     border-radius: 15px
     transition: border 1s, border-radius 1s
     background-origin: border-box !important
@@ -541,7 +599,11 @@ a
 
 .puzzle-img__bl-hide
   height: 0
-  overflow: hidden;
+  overflow: hidden
+
+.plitImage.begin
+  li
+    transition: none !important
 
 //========  FOOTER  ========================================================================================
 #footer

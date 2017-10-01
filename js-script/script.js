@@ -31,8 +31,13 @@ $(function () {
 				setTimeout('$(".gallery-list").removeClass("begin")', 3000);
 			}
 
+			//------- puzzle-img
+			if ( $(box).hasClass("puzzle-img-cont") ) {
 
-			
+				setTimeout('puzzleBegin()', 3000);
+			}
+
+		
 		}
 	});
 
@@ -67,12 +72,17 @@ $(function () {
 			$(".sect-charact .char path").removeClass("active");
 		}
 
+		closeModalCharact();
+	});
 
-		$(".characters-modal-descr").fadeOut(600, function(){
+	//----------------
 
-			$(this).removeClass("active");
-		});
+	$(".js-close-modal-char").on("click", function () {
 
+		$(".sect-charact__bg").removeClass("active");
+		$(".sect-charact .char path").removeClass("active");
+
+		closeModalCharact();
 	});
 
 
@@ -120,28 +130,17 @@ $(function () {
 
 		for (var ii = 0; ii < galleryImg.length; ii++) {
 
-			var znTrans = Math.random() * 1 + 0.7;
+			var znTrans = Math.random() * 1 + 1;
 
-			galleryItem = '<div class="gallery-list__item" style="transition: all '+znTrans.toFixed(1)+'s">'+
-                                '<div class="gallery-list__item-wr">'+
-                                 	'<a href="comics/gallery/' + galleryImg[ii] + '"'+
-                                	'class="gallery-list__item-img fanc-gall-img gallery-list__item-img_ins-fr" '+
-                                	'style="background-image: url(comics/gallery-min/' + galleryImg[ii] + ')"'+
-                                	'rel="group-fr"></a>'+
-                                	'<a href="comics/gallery/' + galleryImg[ii] + '"'+
-                                	'class="gallery-list__item-img fanc-gall-img gallery-list__item-img-sec" ' +
-                                	'style="background-image: url(comics/gallery-min/' + galleryImg[ii] + ')"' +
-                                	'rel="group-sec"></a>' +
-                                '</div>' +
-                            '</div>';
-
+            var galleryItem = elementGallery(znTrans.toFixed(1), galleryImg[ii], galleryImg[ii], galleryImg[ii], galleryImg[ii], "");
 
 			$(".gallery-list__height").append(galleryItem);
                             
 		}
 
-
 		$(".fanc-gall-img").fancybox();
+
+		heightGaller(); //---- плавная подстройка высоты галлереи
 
 	});
 
@@ -150,17 +149,59 @@ $(function () {
 
 	$(".js_gallery-chapter").on("click", function(){
 
+		if( !$(this).hasClass("active") ) {
+
+		$(this).addClass("active");
+
 		var znChapter = $(this).attr("id");
 
 		$('.gallery__bl-hide').load('comics/' + znChapter + '.html #cont-imgs', function(){
 
 			var galleryImg = [];
-			var galleryItem ;
+			var galleryItem;
+			var countImg = 0;
 
 			$('.gallery__bl-hide img').each(function(){
 
 				galleryImg[galleryImg.length] = $(this).attr("src");
+				countImg++;
 			});
+
+			//
+			var countElemGaler = $(".gallery-list__height .gallery-list__item").length;
+
+			if (countImg == countElemGaler) {
+
+			} else if (countImg > countElemGaler) {
+
+				//-- добавляем
+				var rathnCount = countImg - countElemGaler;
+
+				for (var rr = 0; rr < rathnCount; rr++) {
+
+					var znTrans = Math.random() * 1 + 1;
+
+					var galleryItem = elementGallery(znTrans, "", "", "", "", "clCreat");
+				 	$(".gallery-list__height").append(galleryItem);
+				}
+
+				setTimeout('$(".gallery-list__height .gallery-list__item").removeClass("clCreat"); heightGaller()', 2500);
+
+
+			} else {
+
+				//-- удаляем
+				var rathnCount = countElemGaler - countImg;
+
+				for (var rr = 0; rr < rathnCount; rr++) {
+
+					$(".gallery-list__height .gallery-list__item:eq(-" + (rr+1) + ")").addClass("clDelete");
+				}
+
+				setTimeout('$(".gallery-list__height .gallery-list__item.clDelete").remove(); heightGaller()', 2000);
+			}
+
+			//setTimeout("heightGaller()", 3000);		//---- плавная подстройка высоты галлереи
 
 
 			var count_img = 0;
@@ -195,6 +236,8 @@ $(function () {
 			$(".fanc-gall-img").fancybox();
 
 		});
+
+		}
 	});
 
 
@@ -272,6 +315,16 @@ $(function () {
 //----  PLITCA-IMG
 //------------------------------------------------------------------
 
+
+var fl_row = 0,
+    fl_column = 0,
+    notSovp,
+    arr_all_elem = [],
+    iy,
+    buf_from = [],
+    buf_to = [];
+
+
 $(function(){
 
 var arr_elem = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
@@ -292,13 +345,6 @@ $(".plitImage").css({
 	"width": pazzlElem.plitWidth
 });
 
-    var fl_row = 0,
-        fl_column = 0,
-        notSovp,
-        arr_all_elem = [],
-        iy,
-        buf_from = [],
-        buf_to = [];
 
 	for(var i = 0; i < arr_elem.length; i++){
 
@@ -307,7 +353,10 @@ $(".plitImage").css({
         if( i % 4 ) { fl_row++; } else { fl_row = 0; }
         if( iy % 4 ) {  } else { fl_column++; }
 
-        arr_all_elem[arr_all_elem.length] = '<li data-count='+i+' style="background: url(' + pazzlElem.imgSrc + '); background-position: -'+(fl_row * pazzlElem.plitWidth_pl)+'px -'+(fl_column * pazzlElem.plitHeight_pl)+'px"></li>';
+        var znTrans = Math.random() * 3 + 1;
+
+        arr_all_elem[arr_all_elem.length] = '<li data-count='+i+' style="transition: all '+znTrans.toFixed(1)+'s; background: url(' + pazzlElem.imgSrc + '); '+
+        'background-position: -'+(fl_row * pazzlElem.plitWidth_pl)+'px -'+(fl_column * pazzlElem.plitHeight_pl)+'px"></li>';
 	}
 
 
@@ -316,6 +365,79 @@ $(".plitImage").css({
     for(var y = 0; y < arr_elem.length; y++){
         $(".plitImage").append(arr_all_elem[arr_elem[y]]);
     }
+
+
+    //---- определение координат пазлов и располагаем их в одной точке
+    $(".plitImage li").each(function(){
+
+    	var coordPazl = $(this).position();
+    	$(this).css({'left': -coordPazl.left, 'top': -coordPazl.top});
+    });
+
+
+    var count = $(".plitImage li").length;
+    var widt_wr = $(".plitImage").width();
+
+    var count2 = widt_wr / count;
+    count = 100 / count;
+
+});
+//====  END PLITCA-IMG
+//========================================================================
+
+
+
+
+//----- FUNCTIONS
+//------------------------------------------------------------------------
+
+function elementGallery(trans, linkImg_1, minImg_1, linkImg_2, minImg_2, classCreat) {
+
+	var elemGal = '<div class="gallery-list__item ' + classCreat + '" style="transition: all '+ trans +'s">'+
+                    '<div class="gallery-list__item-wr">'+
+                     	'<a href="comics/gallery/' + linkImg_1 + '"'+
+                    	'class="gallery-list__item-img fanc-gall-img gallery-list__item-img_ins-fr" '+
+                    	'style="background-image: url(comics/gallery-min/' + minImg_1 + ')"'+
+                    	'rel="group-fr"></a>'+
+                    	'<a href="comics/gallery/' + linkImg_2 + '"'+
+                    	'class="gallery-list__item-img fanc-gall-img gallery-list__item-img-sec" ' +
+                    	'style="background-image: url(comics/gallery-min/' + minImg_2 + ')"' +
+                    	'rel="group-sec"></a>' +
+                    '</div>' +
+                '</div>';
+
+    return elemGal;
+}
+
+
+function heightGaller() {
+
+	var heightGal = $(".gallery-list__height").outerHeight();
+	$(".gallery-list").css("height", heightGal);
+}
+
+
+function closeModalCharact() {
+
+	$(".characters-modal-descr").fadeOut(600, function(){
+		$(this).removeClass("active");
+	});
+}
+
+
+//------  puzzle-img
+function puzzleBegin() {
+
+	$(".plitImage").removeClass("begin");
+	$(".plitImage li").css({"left": 0, "top": 0});
+
+	setTimeout("puzzleEnd()", 4000);
+}
+
+
+function puzzleEnd() {
+
+	$(".plitImage li").css({"left": "", "top": 0, "transition": ""});
 
 
     $("#sortable li").draggable({
@@ -344,8 +466,8 @@ $(".plitImage").css({
             }
 
         },
-
     });
+
 
     $("#sortable li").droppable({
         hoverClass: "cl-hover",
@@ -361,21 +483,7 @@ $(".plitImage").css({
     	}
     });
 
-    var count = $(".plitImage li").length;
-    var widt_wr = $(".plitImage").width();
-
-    var count2 = widt_wr / count;
-    count = 100 / count;
-
-});
-//====  END PLITCA-IMG
-//========================================================================
-
-
-
-
-//----- FUNCTIONS
-//------------------------------------------------------------------------
+}
 
 
 var spinX = -25, spinY = 20;
