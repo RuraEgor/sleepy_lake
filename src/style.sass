@@ -344,17 +344,32 @@ h1,h2,h3,h4,h5,h6
   display: flex
   display: none
   transform: translateX(-50%)
+  border: 2px solid yellow
 
   &::before
+    // content: ""
+    // height: 0
+    // position: absolute
+    // bottom: -30px
+    // left: 50%
+    // border-top: 30px solid #151515
+    // transform: translateX(-50%)
+    // border-left: 30px solid transparent
+    // border-right: 30px solid transparent
+
     content: ""
-    height: 0
+    height: 30px
+    width: 30px
+    border: none
+    border-right: 2px solid yellow
+    border-bottom: 2px solid yellow
+    border-radius: 0 0 4px 0
     position: absolute
-    bottom: -30px
+    bottom: -17px
+    margin-left: -15px
     left: 50%
-    border-top: 30px solid #151515
-    transform: translateX(-50%)
-    border-left: 30px solid transparent
-    border-right: 30px solid transparent
+    transform: rotate(45deg)
+    background: #151515
 
   &__wr
     display: flex
@@ -405,6 +420,9 @@ h1,h2,h3,h4,h5,h6
     overflow: auto
     max-height: 220px
     box-sizing: border-box
+    background: #151515
+    position: relative
+    z-index: 2
 
 
 
@@ -438,7 +456,7 @@ h1,h2,h3,h4,h5,h6
   width: 70px
   transform-style: preserve-3d
   transform: translateX(50px) rotateX(0) rotateY(0)
-  transition: all 3s
+  transition: 0.5s all
   pointer-events: none
   transform-origin: 0 0 0 !important
 
@@ -463,6 +481,9 @@ h1,h2,h3,h4,h5,h6
   box-sizing: border-box
   background-position: center top !important
   background-size: cover !important
+
+#cube.start
+  transition: all 3s
 
 
 #cube .cn-img
@@ -496,7 +517,7 @@ h1,h2,h3,h4,h5,h6
   opacity: 0.9
   background-position: center top !important
   background-size: cover !important
-  transition: transform 6s, opacity 1s
+  transition: transform 6s 1s, opacity 1s
   transform-origin: 0 0 0 !important
 
 
@@ -531,9 +552,41 @@ h1,h2,h3,h4,h5,h6
 .wr_img_sl
   display: none
 
-
 .slider-art__list-img
   display: none
+
+.slider-arrow-wr
+  .arrow
+    position: absolute
+    height: 60px
+    z-index: 5
+    width: 60px
+    box-sizing: border-box
+    border-radius: 50%
+    text-align: center
+    cursor: pointer
+    line-height: 60px
+    background: rgba(0,0,0,0.9)
+    opacity: 0.6
+    transition: $trans all
+    top: 40%
+
+    &:hover,
+    &:active
+      opacity: 0.9
+    
+  .arrow-prew
+    left: 110px
+
+  .arrow-next
+    right: 110px
+
+.slider-arrow-wr
+    transition: 2s opacity
+
+.slider-arrow-wr.start
+    opacity: 0
+
 
 
 //---- PLITCA-IMG
@@ -604,6 +657,77 @@ h1,h2,h3,h4,h5,h6
 .plitImage.begin
   li
     transition: none !important
+
+
+//---- WRITE-ME
+//-----------------------------------------------------------------------------
+.write-me
+
+  &-wr
+    padding: 50px 30px
+    display: block
+    box-sizing: border-box
+    margin: 20px auto 0
+    max-width: 100%
+    background-position: bottom center !important
+    background-attachment: fixed !important
+
+  &-wr-cont
+    display: flex
+    justify-content: space-between
+
+  &__form
+    display: block
+    margin: auto
+    max-width: 800px
+    width: 100%
+
+  &__input,
+  &__textarea
+    width: 48%
+    display: block
+    height: 40px
+    padding: 0 10px
+    border-radius: 4px
+    background: rgba(256, 256, 256, 0.65)
+    box-sizing: border-box
+    transition: 1s all
+    border: 1px solid rgba(56, 26, 56, 0.9)
+    margin-bottom: 20px
+
+    &:focus,
+    &:hover
+      background: rgba(256, 256, 256, 0.9) !important
+
+    &:valid
+      background: rgba(256, 256, 256, 0.9)
+
+  &__textarea
+    padding: 10px
+    width: 100%
+    min-height: 180px
+
+  &__name
+
+  &__email
+    float: right
+
+  &__but
+    box-sizing: border-box
+    padding: 0 10px
+    height: 40px
+    border-radius: 4px
+    background: gray
+    transition: $trans all
+    color: #ffffff
+    border: none
+    font-size: 20px
+    min-width: 170px
+
+    &:hover
+      background: blue
+
+
 
 //========  FOOTER  ========================================================================================
 #footer

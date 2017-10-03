@@ -16,6 +16,9 @@
   font-weight: normal;
   font-style: normal; }
 
+body * {
+  outline: none; }
+
 body {
   background: #3b3e3b;
   margin: 0;
@@ -294,17 +297,22 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 100;
   display: flex;
   display: none;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  border: 2px solid yellow; }
   .characters-modal-descr::before {
     content: "";
-    height: 0;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-right: 2px solid yellow;
+    border-bottom: 2px solid yellow;
+    border-radius: 0 0 4px 0;
     position: absolute;
-    bottom: -30px;
+    bottom: -17px;
+    margin-left: -15px;
     left: 50%;
-    border-top: 30px solid #151515;
-    transform: translateX(-50%);
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent; }
+    transform: rotate(45deg);
+    background: #151515; }
   .characters-modal-descr__wr {
     display: flex;
     height: 100%;
@@ -346,7 +354,10 @@ h1, h2, h3, h4, h5, h6 {
     text-align: justify;
     overflow: auto;
     max-height: 220px;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    background: #151515;
+    position: relative;
+    z-index: 2; }
 
 .sect-wr__slider-art {
   min-height: 530px; }
@@ -369,7 +380,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 70px;
   transform-style: preserve-3d;
   transform: translateX(50px) rotateX(0) rotateY(0);
-  transition: all 3s;
+  transition: 0.5s all;
   pointer-events: none;
   transform-origin: 0 0 0 !important; }
 
@@ -393,6 +404,9 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
   background-position: center top !important;
   background-size: cover !important; }
+
+#cube.start {
+  transition: all 3s; }
 
 #cube .cn-img {
   position: absolute;
@@ -424,7 +438,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.9;
   background-position: center top !important;
   background-size: cover !important;
-  transition: transform 6s, opacity 1s;
+  transition: transform 6s 1s, opacity 1s;
   transform-origin: 0 0 0 !important; }
 
 #cube:hover > div {
@@ -458,6 +472,35 @@ h1, h2, h3, h4, h5, h6 {
 
 .slider-art__list-img {
   display: none; }
+
+.slider-arrow-wr .arrow {
+  position: absolute;
+  height: 60px;
+  z-index: 5;
+  width: 60px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 0.6;
+  transition: 0.3s all;
+  top: 40%; }
+  .slider-arrow-wr .arrow:hover, .slider-arrow-wr .arrow:active {
+    opacity: 0.9; }
+
+.slider-arrow-wr .arrow-prew {
+  left: 110px; }
+
+.slider-arrow-wr .arrow-next {
+  right: 110px; }
+
+.slider-arrow-wr {
+  transition: 2s opacity; }
+
+.slider-arrow-wr.start {
+  opacity: 0; }
 
 .plitImage {
   width: 100%;
@@ -515,3 +558,60 @@ h1, h2, h3, h4, h5, h6 {
 
 .plitImage.begin li {
   transition: none !important; }
+
+.write-me-wr {
+  padding: 50px 30px;
+  display: block;
+  box-sizing: border-box;
+  margin: 20px auto 0;
+  max-width: 100%;
+  background-position: bottom center !important;
+  background-attachment: fixed !important; }
+
+.write-me-wr-cont {
+  display: flex;
+  justify-content: space-between; }
+
+.write-me__form {
+  display: block;
+  margin: auto;
+  max-width: 800px;
+  width: 100%; }
+
+.write-me__input, .write-me__textarea {
+  width: 48%;
+  display: block;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.65);
+  box-sizing: border-box;
+  transition: 1s all;
+  border: 1px solid rgba(56, 26, 56, 0.9);
+  margin-bottom: 20px; }
+  .write-me__input:focus, .write-me__input:hover, .write-me__textarea:focus, .write-me__textarea:hover {
+    background: rgba(255, 255, 255, 0.9) !important; }
+  .write-me__input:valid, .write-me__textarea:valid {
+    background: rgba(255, 255, 255, 0.9); }
+
+.write-me__textarea {
+  padding: 10px;
+  width: 100%;
+  min-height: 180px; }
+
+.write-me__email {
+  float: right; }
+
+.write-me__but {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 40px;
+  border-radius: 4px;
+  background: gray;
+  transition: 0.3s all;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  min-width: 170px; }
+  .write-me__but:hover {
+    background: blue; }

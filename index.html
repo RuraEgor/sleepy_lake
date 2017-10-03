@@ -114,22 +114,7 @@
                         <div class="gallery-chapter__name"></div>
                     </div>
                     <div class="gallery-list begin">
-                        <div class="gallery-list__height">
-                        <!--
-                            <div class="gallery-list__item">
-                                <div class="gallery-list__item-wr">
-                                    <a href="comics/gallery/chapter_1/1.png"
-                                class="gallery-list__item-img fanc-gall-img gallery-list__item-img_ins-fr" 
-                                style='background-image: url(comics/gallery/chapter_1/1.png)'
-                                rel="group-fr"></a>
-                                <a href="comics/gallery/chapter_1/3.png"
-                                class="gallery-list__item-img fanc-gall-img gallery-list__item-img-sec" 
-                                style='background-image: url(comics/gallery/chapter_1/3.png)'
-                                rel="group-sec"></a>
-                                </div>
-                            </div>
-                            -->
-                        </div>
+                        <div class="gallery-list__height"></div>
                     </div>
                 </div>
                 <div class="gallery-chapter-list">
@@ -216,7 +201,7 @@
 
         <!--    SLIDER-ART    -->
         <section id="slider-art" class="section slider-art">
-            <div class="sect-wr sect-wr__slider-art">
+            <div class="sect-wr bl-relative sect-wr__slider-art">
                 <div class="wow fadeIn slider-art-wow" data-wow-delay="0.5s" data-wow-duration="2s">
                 <h2 class="title-sect title-sect_char">Арт</h2>
                     <!--                 <article id="slider-art__area">
@@ -240,13 +225,18 @@
                     <!--    -->
                     <article id="viewport">
                         <section id="cube-cube">
-                            <section id="cube">
+                            <section id="cube" class="start">
 
                             </section>
                             <div id="imgCenter" style='background: url("art/pers.png") no-repeat'></div>
                         </section>
                     </article>
 
+                    <div class="slider-arrow-wr start">
+                        <div class="arrow arrow-prew"></div>
+                        <div class="arrow arrow-next"></div>
+                    </div>
+                    
                     <div class="wr_img_sl">
                         <img src="art/miny/part_1/1.png" data-min="art/normal/part_1/1.png" />
                         <img src="art/miny/part_1/2.png" data-min="art/normal/part_1/2.png" />
@@ -261,6 +251,26 @@
             </div>
         </section>
         <!--    END SLIDER-ART    -->
+
+        <!--    WRITE-ME    -->
+        <section id="write-me" class="section write-me">
+            <div class="sect-wr">
+                <div class="wow fadeIn" data-wow-delay="0.5s" data-wow-duration="2s">
+                <h2 class="title-sect title-sect_char">Отправте отзыв</h2>
+                    <div class="write-me-wr" style="background: url('img/form-bg.jpg');">
+                        <form action="" class="write-me__form">
+                            <div class="write-me-wr-cont">
+                                <input type="text" name="email" placeholder="Ваше имя" required="" class="write-me__input write-me__name">
+                                <input type="email" name="email" placeholder="E-mail" required="" class="write-me__input write-me__email">
+                            </div>
+                            <textarea name="" id="" placeholder="Отзыв" required="" class="write-me__textarea write-me__textarea"></textarea>
+                            <button class="write-me__but">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--    END WRITE-ME    -->
 
         <!--    PUZZLE-IMG    -->
         <section id="puzzle-img" class="section puzzle-img">
@@ -277,12 +287,9 @@
         <!--    END PUZZLE-IMG    -->
 
         <!--    REVIEWS    -->
-        <section id="reviews" class="section reviews"></section>
+        <!--         <section id="reviews" class="section reviews"></section> -->
         <!--    END REVIEWS    -->
 
-        <!--    WRITE-ME    -->
-        <section id="write-me" class="section wtite-me"></section>
-        <!--    END WRITE-ME    -->
     </main>
     <footer id="footer" class="footer">
         <div class="sect-wr">

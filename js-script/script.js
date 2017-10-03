@@ -18,17 +18,19 @@ $(function () {
 				$(box).addClass("active");
 			}
 
+			//------- art-slider
+			if ( $(box).hasClass("gallery-wow") ) {
+
+				setTimeout('$(".gallery-list").removeClass("begin")', 3000);
+				
+			}
 
 			//------- art-slider
 			if ( $(box).hasClass("slider-art-wow") ) {
 
 				setTimeout("startSl()", 2000);
-			}
-
-			//------- art-slider
-			if ( $(box).hasClass("gallery-wow") ) {
-
-				setTimeout('$(".gallery-list").removeClass("begin")', 3000);
+				setTimeout('$(".slider-arrow-wr").removeClass("start")', 6000);
+				setTimeout('$("#cube").removeClass("start")', 8000);
 			}
 
 			//------- puzzle-img
@@ -423,6 +425,23 @@ function closeModalCharact() {
 		$(this).removeClass("active");
 	});
 }
+
+
+
+//------  art-slider
+$(".arrow-prew").on("click", function(){
+	
+});
+
+$(".arrow-next").on("click", function(){
+
+	$("#cube").velocity({
+	    rotateX: "-20deg",
+	    rotateY: +30
+	});
+	
+});
+
 
 
 //------  puzzle-img
