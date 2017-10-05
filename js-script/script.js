@@ -1,5 +1,11 @@
 'use strict';
 
+//----- VARRIAL GLOBAL ----
+var deg_ret = 0;
+
+
+//-------------------------
+
 $(function () {
 
 
@@ -30,7 +36,7 @@ $(function () {
 
 				setTimeout("startSl()", 2000);
 				setTimeout('$(".slider-arrow-wr").removeClass("start")', 6000);
-				setTimeout('$("#cube").removeClass("start")', 8000);
+				setTimeout('$("#cube").removeClass("start"); $("#cube").velocity({rotateX: "-20deg",rotateY: "20deg"}, 0);', 8000);
 			}
 
 			//------- puzzle-img
@@ -153,6 +159,7 @@ $(function () {
 
 		if( !$(this).hasClass("active") ) {
 
+		$(".list-chapter").removeClass("active");
 		$(this).addClass("active");
 
 		var znChapter = $(this).attr("id");
@@ -429,16 +436,23 @@ function closeModalCharact() {
 
 
 //------  art-slider
-$(".arrow-prew").on("click", function(){
+$(".arrow-next").on("click", function(){
+
+	$("#cube").velocity("stop")
+			  .velocity({
+			    rotateX: '-20deg',
+			    rotateY: '+=' + deg_ret + 'deg'
+	}, 400);
 	
 });
 
-$(".arrow-next").on("click", function(){
+$(".arrow-prew").on("click", function(){
 
-	$("#cube").velocity({
-	    rotateX: "-20deg",
-	    rotateY: +30
-	});
+	$("#cube").velocity("stop")
+			  .velocity({
+			    rotateX: '-20deg',
+			    rotateY: '-=' + deg_ret + 'deg'
+	}, 400);
 	
 });
 
@@ -509,42 +523,6 @@ var spinX = -25, spinY = 20;
 var spinX = 0, spinY = 0;
 
 
-$(document).keydown(function (evt) {
-	switch (evt.keyCode) {
-		case 37: // left
-			spinY -= 1;
-			spinStage(spinX, spinY);
-			break;
-
-		case 38: // up
-			evt.preventDefault();
-			spinX += 1;
-			spinStage(spinX, spinY);
-			break;
-
-		case 39: // right
-			spinY += 1;
-			spinStage(spinX, spinY);
-			break;
-
-		case 40: // down
-			evt.preventDefault();
-			spinX -= 1;
-			spinStage(spinX, spinY);
-			break;
-
-		case 27: //esc
-			break;
-
-		default:
-			break;
-	}
-	;
-
-});
-
-
-
 
 var ms_img_src = [0];
 var ms_img_src_min = [0];
@@ -570,7 +548,9 @@ for (var k = 1; k < ms_img_src.length; k++) {
 
 function startSl() {
 	var cc = 0;
-	var deg_ret = 360 / (ms_img_src.length - 1);
+	deg_ret = 360 / (ms_img_src.length - 1);
+	deg_ret = deg_ret.toFixed(1);
+
 
 	$("#cube .cn-img").each(function () {
 		var deg_ret_item = deg_ret * cc;
@@ -588,31 +568,31 @@ $(".fancybox").fancybox();
 //---------------------------------------------------------
 
 
-	//----  RANDOM-LIST PLITCA
-	//--------------------------------------------------------------------
-    function compareRandom(a, b) {
-	  return Math.random() - 0.5;
-	}
+//----  RANDOM-LIST PLITCA
+//--------------------------------------------------------------------
+function compareRandom(a, b) {
+  return Math.random() - 0.5;
+}
 
 
-	//----  CHECK-LIST PLITCA
-	//--------------------------------------------------------------------
-    function checkImg(){
+//----  CHECK-LIST PLITCA
+//--------------------------------------------------------------------
+function checkImg(){
 
-        var notSovp = 1;
+    var notSovp = 1;
 
-        $(".plitImage li").each(function(){
+    $(".plitImage li").each(function(){
 
-            var zn_index = $(this).index();
-            var zn_nom = $(this).attr("data-count");
+        var zn_index = $(this).index();
+        var zn_nom = $(this).attr("data-count");
 
-            if(zn_index != zn_nom) {
-                notSovp = 0;
-            }
-
-        });
-
-        if ( notSovp == 1 ) {
-            $(".plitImage").addClass("right");
+        if(zn_index != zn_nom) {
+            notSovp = 0;
         }
+
+    });
+
+    if ( notSovp == 1 ) {
+        $(".plitImage").addClass("right");
     }
+}
