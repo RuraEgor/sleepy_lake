@@ -140,13 +140,13 @@ h1,h2,h3,h4,h5,h6
 
     &_up
       z-index: 5
-      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
-      transform: translateY(0%);
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%)
+      transform: translateY(0%)
 
     &_dw
       z-index: 5
       clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
-      transform: translateY(0%);
+      transform: translateY(0%)
 
     &_mid
       z-index: 10
@@ -156,10 +156,10 @@ h1,h2,h3,h4,h5,h6
   &.active &__item
 
     &_up
-      transform: translateY(-50%);
+      transform: translateY(-50%)
 
     &_dw
-      transform: translateY(50%);
+      transform: translateY(50%)
 
     &_mid
       display: none
@@ -212,34 +212,42 @@ h1,h2,h3,h4,h5,h6
 
 
 //------- DESCRIPTION ------------------------------
+.sect-wr_descr
+  padding-top: 30px
+
 .shape-img
-    shape-image-threshold: 0.2
-    shape-margin: 0px
-    background-position: center center !important
+  background-position: center center !important
 
 .shape-img_1
-    width: 160px
-    height: 150px
-    float: left
-    background: url(../img/descrp-shape-1.png) no-repeat
-    -webkit-shape-outside: url(../img/descrp-shape-black-1.svg)
-    -moz-shape-outside: url(../img/descrp-shape-black-1.svg)
-    -o-shape-outside: url(../img/descrp-shape-black-1.svg)
-    shape-outside: url(../img/descrp-shape-black-1.svg)
+  width: 250px
+  height: 208px
+  float: left
+  margin-top: 90px
+  shape-margin: 5px
+  background-position: left !important
+  background: url(../img/descrp-shape-1.png) no-repeat
+  -webkit-shape-outside: url(../img/descrp-shape-111.png)
+  -moz-shape-outside: url(../img/descrp-shape-111.png)
+  -o-shape-outside: url(../img/descrp-shape-111.png)
+  shape-outside: url(../img/descrp-shape-111.png)
+  shape-image-threshold: 0.5
 
 .shape-img_2
-    width: 255px
-    height: 355px
-    float: right
-    background: url(../img/descrp-shape-2.png) no-repeat
-    -webkit-shape-outside: url(../img/descrp-shape-black-2.svg)
-    -moz-shape-outside: url(../img/descrp-shape-black-2.svg)
-    -o-shape-outside: url(../img/descrp-shape-black-2.svg)
-    shape-outside: url(../img/descrp-shape-black-2.svg)
+  width: 255px
+  height: 355px
+  float: right
+  margin-top: 60px
+  background: url(../img/descrp-shape-2.png) no-repeat
+  -webkit-shape-outside: url(../img/descrp-shape-222.png)
+  -moz-shape-outside: url(../img/descrp-shape-222.png)
+  -o-shape-outside: url(../img/descrp-shape-222.png)
+  shape-outside: url(../img/descrp-shape-222.png)
+  shape-image-threshold: 0.5
+  shape-margin: 5px
 
 .desctiption_text
   color: #fff
-  font-size: 20px
+  font-size: 21px
   line-height: 1.5
   text-align: justify
 
@@ -324,7 +332,7 @@ h1,h2,h3,h4,h5,h6
       z-index: 5
       box-sizing: border-box
       border-radius: 10px
-      background-repeat: no-repeat;
+      background-repeat: no-repeat
       background-size: cover
       background-position: center
       transition: all 1s
@@ -543,7 +551,7 @@ h1,h2,h3,h4,h5,h6
       bottom: 0
 
   &__cont-img
-    background-size: contain !important;
+    background-size: contain !important
     background-position: center !important
     width: 100%
     align-items: center
@@ -657,7 +665,7 @@ h1,h2,h3,h4,h5,h6
   height: 100%
 
 #cube .cn-img
-  perspective-origin: 0% 0%;
+  perspective-origin: 0% 0%
   transform-origin: 0% 0%
   opacity: 0.9
   background-position: center top !important
@@ -671,7 +679,7 @@ h1,h2,h3,h4,h5,h6
 
 
 #cube > div:hover
-  opacity: 1 !important;
+  opacity: 1 !important
 
 
 #cube div span

@@ -36,7 +36,7 @@ gulp.task('styles:build', function () {
         .pipe(plumber())
         // .pipe(sourcemaps.init())            // То же самое что и с js
         .pipe(sass())                       // Скомпилируем
-        // .pipe(prefixer())                   // Добавим вендорные префиксы
+        .pipe(prefixer())                   // Добавим вендорные префиксы
         // .pipe(cssmin())                     // Сожмем
         // .pipe(sourcemaps.write())           // Пропишем карты
         // .pipe(plumber.stop())
