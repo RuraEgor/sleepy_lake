@@ -6,6 +6,10 @@
 html,body
   //height: 100%
 
+html.start,
+body.start
+  overflow: hidden
+
 
 body
   background: $bgBody
@@ -69,6 +73,107 @@ h1,h2,h3,h4,h5,h6
     background: rgba(0, 0, 0, 0.6)
     z-index: -5
 
+
+//------- PRELOAD ------------------------------
+.preload-site
+  position: fixed
+  left: 0
+  top: 0
+  bottom: 0
+  right: 0
+  z-index: 1000
+  overflow: hidden
+  pointer-events: none
+
+  &__title
+    position: absolute
+    top: 50%
+    left: 0
+    right: 0
+    transform: translateY(-50%)
+    transition: 0.3s all
+    font-size: 180px
+    font-family: "OctinVintageARg-Bold"
+    color: #ffffff
+    text-align: center
+    z-index: 10
+    padding: 0
+    margin: 0
+    text-transfrom: uppercase
+
+
+  &__prel
+    position: absolute
+    margin-top: -1px
+    top: 50%
+    left: 0
+    height: 2px
+    width: 0%
+    opacity: 0.7
+    background: yellow
+    transition: 0.3s all
+    z-index: 20
+
+    &--count
+      position: absolute
+      top: 20%
+      left: 50%
+      max-width: 200px
+      width: 100%
+      display: block
+      margin-top: -10px
+      z-index: 20
+      color: rgba(256, 256, 256, 0.5)
+      font-size: 50px
+      text-aling: center
+
+
+  &__item
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 0
+    right: 0
+    background-position: center !important
+    background-size: cover !important
+    transition: 2s all
+
+    &_up
+      z-index: 5
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+      transform: translateY(0%);
+
+    &_dw
+      z-index: 5
+      clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%)
+      transform: translateY(0%);
+
+    &_mid
+      z-index: 10
+      transition: none
+
+    
+  &.active &__item
+
+    &_up
+      transform: translateY(-50%);
+
+    &_dw
+      transform: translateY(50%);
+
+    &_mid
+      display: none
+
+  &.active   
+    .preload-site__prel
+      opacity: 0
+
+    .preload-site__prel--count
+        opacity: 0
+
+
+#qLoverlay
+  display: none !important
 
 //------- HEADER ------------------------------
 .header
@@ -236,6 +341,46 @@ h1,h2,h3,h4,h5,h6
   .gallery-list__item-img-sec
     pointer-events: all      
     
+
+
+.gallery-chapter-list
+    margin: 20px auto 0
+    max-width: 450px
+
+    &__name
+      text-transform: uppercase
+      color: #ffffff
+      font-weight: bold
+      text-align: center
+      padding: 4px 15px
+      font-size: 20px
+
+    &__item
+      margin-top: 15px
+
+    &__img
+      width: atuo
+      height: 40px
+      vertical-align: middle
+      margin-right: 10px
+
+    &__chapter
+      border-radius: 4px
+      border: 1px solid #ffffff
+      background: #797e79
+      font-size: 16px
+      color: #ffffff
+      line-height: 21px
+      padding: 6px 10px
+      cursor: pointer
+      transition: 0.5s all
+
+      &:hover
+        background: #979d97
+
+      &.active
+        background: #979d97
+
 
 
 //------- CHARACTERS ------------------------------
@@ -570,16 +715,39 @@ h1,h2,h3,h4,h5,h6
     opacity: 0.6
     transition: $trans all
     top: 40%
+    border: 1px solid #ffffff
 
     &:hover,
     &:active
       opacity: 0.9
     
+    &::before
+      content: ""
+      display: block
+      position: absolute
+      /* transform: translate(-50%, -50%); */
+      margin-top: -10px
+      top: 50%
+      left: 50%
+      box-sizing: border-box
+      width: 10px
+      height: 20px
+      background-size: contain !important
+      background-position: center !important
+
+    
   .arrow-prew
     left: 110px
+    &::before
+      background: url(../img/arrow-left.png) no-repeat
+      margin-left: -5px
 
   .arrow-next
     right: 110px
+    &::before
+      background: url(../img/arrow-right.png) no-repeat
+      margin-left: -2px
+    
 
 .slider-arrow-wr
     transition: 2s opacity
@@ -716,18 +884,48 @@ h1,h2,h3,h4,h5,h6
     box-sizing: border-box
     padding: 0 10px
     height: 40px
-    border-radius: 4px
+    border-radius: 6px
     background: gray
     transition: $trans all
     color: #ffffff
     border: none
     font-size: 20px
     min-width: 170px
+    border: 2px solid gray
 
     &:hover
-      background: blue
+      background: #ffffff
+      color: gray
+
 
 
 
 //========  FOOTER  ========================================================================================
 #footer
+.footer
+
+  .sect-wr 
+    padding-top: 30px
+    background: linear-gradient(#333533, #000000)
+    border-top: 2px solid #86865e
+
+  &-data
+    display: flex
+    margin: 40px auto 20px
+    max-width: 900px
+
+    &__item
+      width: 50%
+      color: #aea7a7
+      font-weight: bold
+
+      &_idea
+
+      &_creater
+        text-align: right
+
+    &__link
+      color: #ffffff
+      font-weight: bold
+      margin-left: 10px
+  

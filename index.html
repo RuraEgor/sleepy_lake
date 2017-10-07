@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="start">
 <head>
     <meta charset="UTF-8">
     <title>Sleepy Lake</title>
@@ -17,7 +17,7 @@
     <!-- js-files -->
     <script src="js/jquery-3.2.1.js"></script>
 
-    <script src="js-777/queryloader2.min.js"></script>
+    <script src="js/queryloader2.min.js"></script>
 
     <script type="text/javascript" src="js77/jquery.slimscroll.min.js"></script>
 
@@ -33,21 +33,30 @@
     <!-- end js-files -->
 
 </head>
-<body>
+<body  class="start">
+<div class="preload-site">
+    <div class="preload-site__item preload-site__item_up" style="background: url('img/bg-preload.jpg') no-repeat;">
+    <h1 class="preload-site__title">sleepyl lake</h1>
+    </div>
+    <div class="preload-site__item preload-site__item_dw" style="background: url('img/bg-preload.jpg') no-repeat;">
+    <h1 class="preload-site__title">sleepyl lake</h1>
+    </div>
+    <div class="preload-site__prel--count"></div>
+    <div class="preload-site__prel"></div>
+</div>
 <div id="wrap">
     <div class="bg_site" style='background: url("img/bg-site.jpg") no-repeat;'></div>
     <header id="header" class="header">
         <div class="sect-wr bl-relative sect-wr_head" style='background: url("img/bg-header.png") no-repeat;'>
             <h1 class="title-sect title-sect_head">Sleepy Lake</h1>
             <nav class="main-nav js-main-nav main-nav__header">
-                <a href="#descriton" class="main-nav-ln">Описание комикса</a>
+                <a href="#descriton" class="main-nav-ln">Описание</a>
                 <a href="#last-update" class="main-nav-ln">Обновления</a>
                 <a href="#gallery" class="main-nav-ln">Галлерея</a>
                 <a href="#characters" class="main-nav-ln">Персонажи</a>
+                <a href="#wtite-me" class="main-nav-ln">Отзыв</a>
                 <a href="#slider-art" class="main-nav-ln">Арт</a>
-                <a href="#puzzle-img" class="main-nav-ln">Вниз</a>
-                <a href="#wtite-me" class="main-nav-ln">Вниз</a>
-                <a href="#footer" class="main-nav-ln">Вниз</a>
+                <a href="#puzzle-img" class="main-nav-ln">Собери картинку</a>
             </nav>
         </div>
     </header>
@@ -117,15 +126,16 @@
                         <div class="gallery-list__height"></div>
                     </div>
                 </div>
-                <div class="gallery-chapter-list">
+                <div class="gallery-chapter-list wow fadeIn" data-wow-delay="0.5s" data-wow-duration="3s">
                     <div class="gallery-chapter-list__name">Список глав</div>
                     <div class="gallery-chapter-list__item">
-                        <div id="chapter_1" class="list-chapter js_gallery-chapter active">Глава 1</div>
-                        <div id="chapter_2" class="list-chapter js_gallery-chapter">Глава 2</div>
+                        <div id="chapter_1" class="gallery-chapter-list__chapter js_gallery-chapter active">
+                        <img src="comics/gallery-min/chapter_1/1.png" class="gallery-chapter-list__img" alt=""> Глава 1 - Начало</div>
+                        <div id="chapter_2" class="gallery-chapter-list__chapter js_gallery-chapter">
+                        <img src="comics/gallery-min/chapter_2/65.png" class="gallery-chapter-list__img" alt=""> Глава 2 - Монстр</div>
                     </div>
                 </div>
                 <div class="gallery__bl-hide"></div>
-                </div>
             </div>
         </section>
         <!--    END GALLERY    -->
@@ -246,7 +256,7 @@
                         <img src="art/miny/part_1/4.png" data-min="art/normal/part_1/4.png" />
                         <img src="art/miny/part_1/5.png" data-min="art/normal/part_1/5.png" />
                         <img src="art/miny/part_1/6.png" data-min="art/normal/part_1/6.png" />
-                        <img src="art/miny/part_1/7.jpg" data-min="art/normal/part_1/7.png" />
+                        <img src="art/miny/part_1/7.jpg" data-min="art/normal/part_1/7.jpg" />
                     </div>
                     <!--  -->
                 </div>
@@ -294,31 +304,27 @@
 
     </main>
     <footer id="footer" class="footer">
-        <div class="sect-wr">
+        <div class="sect-wr sect-wr_foot">
             <nav class="main-nav js-main-nav">
-                <a href="#descriton" class="main-nav-ln">Описание комикса</a>
+                <a href="#descriton" class="main-nav-ln">Описание</a>
                 <a href="#last-update" class="main-nav-ln">Обновления</a>
                 <a href="#gallery" class="main-nav-ln">Галлерея</a>
                 <a href="#characters" class="main-nav-ln">Персонажи</a>
+                <a href="#wtite-me" class="main-nav-ln">Отзыв</a>
                 <a href="#slider-art" class="main-nav-ln">Арт</a>
-                <a href="#puzzle-img" class="main-nav-ln">Вниз</a>
-                <a href="#wtite-me" class="main-nav-ln">Вниз</a>
-                <a href="#footer" class="main-nav-ln">Вниз</a>
+                <a href="#puzzle-img" class="main-nav-ln">Собери картинку</a>
             </nav>
+            <div class="footer-data">
+                <div class="footer-data__item footer-data__item_idea">
+                    Идея визуальной новеллы: <a href="https://vk.com/zengel" class="footer-data__link">Zengel and Deymos</a>
+                </div>
+                <div class="footer-data__item footer-data__item_creater">
+                    Создатель сайта: <a href="mailto:ruraegor@gmail.ru" class="footer-data__link">ruraegor@gmail.ru</a>
+                </div>
+            </div>
         </div>
     </footer>
 </div><!--  wrap end  -->
-
-<!-- MODAL-WINDOW -->
-<!-- <div id="modal-form">
-    <div class="modal-form">
-        <form>
-            <h2>777777777777777777777</h2>
-        </form>
-    </div>
-</div> -->
-<!-- END MODAL-WINDOW -->
-
 
 <!-- js-files-script -->
 <script src="js-script/script.js"></script>

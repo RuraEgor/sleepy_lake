@@ -107,22 +107,6 @@ $(function () {
 
 
 	//==========  GALLERY
-	//  $.ajax({
-	// 	url: "comics/chapter_1.html",
-	// 	type: 'post',
-	// 	dataType: 'json',
-	// 	data: { },
-	// 	success: function(data) {
-			
-	// 		alert(data);
-	// 	},
- //        error: function (jgxhr){
-
- //            console.log(jgxhr);
- //            console.log("Error send");
- //        }
-	// });  //-- конец аякса
-
 	$('.gallery__bl-hide').load('comics/chapter_1.html #cont-imgs', function(){
 
 		var galleryImg = [];
@@ -159,92 +143,95 @@ $(function () {
 
 		if( !$(this).hasClass("active") ) {
 
-		$(".list-chapter").removeClass("active");
-		$(this).addClass("active");
+			$(".gallery-chapter-list__chapter").removeClass("active");
+			$(this).addClass("active");
 
-		var znChapter = $(this).attr("id");
+			var znChapter = $(this).attr("id");
 
-		$('.gallery__bl-hide').load('comics/' + znChapter + '.html #cont-imgs', function(){
+			$('.gallery__bl-hide').load('comics/' + znChapter + '.html #cont-imgs', function(){
 
-			var galleryImg = [];
-			var galleryItem;
-			var countImg = 0;
+				var galleryImg = [];
+				var galleryItem;
+				var countImg = 0;
 
-			$('.gallery__bl-hide img').each(function(){
+				$('.gallery__bl-hide img').each(function(){
 
-				galleryImg[galleryImg.length] = $(this).attr("src");
-				countImg++;
+					galleryImg[galleryImg.length] = $(this).attr("src");
+					countImg++;
+				});
+
+				//
+				var countElemGaler = $(".gallery-list__height .gallery-list__item").length;
+
+				if (countImg == countElemGaler) {
+
+					//---- если стрипов в обоих главах одинаковое количество
+
+				} else if (countImg > countElemGaler) {
+
+					//-- добавляем
+					var rathnCount = countImg - countElemGaler;
+
+					for (var rr = 0; rr < rathnCount; rr++) {
+
+						var znTrans = Math.random() * 1 + 1;
+
+						var galleryItem = elementGallery(znTrans, "", "", "", "", "clCreat");
+					 	$(".gallery-list__height").append(galleryItem);
+					}
+
+					setTimeout('heightGaller()', 3500);
+					setTimeout('$(".gallery-list__height .gallery-list__item").removeClass("clCreat"); heightGaller()', 4500);
+
+
+				} else {
+
+					//-- удаляем
+					var rathnCount = countElemGaler - countImg;
+
+					for (var rr = 0; rr < rathnCount; rr++) {
+
+						$(".gallery-list__height .gallery-list__item:eq(-" + (rr+1) + ")").addClass("clDelete");
+					}
+
+					setTimeout('$(".gallery-list__height .gallery-list__item.clDelete").remove(); heightGaller()', 2000);
+				}
+
+				//setTimeout("heightGaller()", 3000);		//---- плавная подстройка высоты галлереи
+
+
+				var count_img = 0;
+
+				if( $(".gallery-list").hasClass("active") ) {
+
+					$('.gallery-list__height .gallery-list__item').each(function(){
+
+						$(this).find(".gallery-list__item-img-sec").attr("href", "mmmmmmmmmmmmmmmmm");
+						$(this).find(".gallery-list__item-img-sec").attr("style", 'background-image: url(comics/gallery-min/' + galleryImg[count_img] + ')');
+
+						count_img++;
+					});
+
+					$(".gallery-list").removeClass("active");
+
+				} else {
+
+					$('.gallery-list__height .gallery-list__item').each(function(){
+
+						$(this).find(".gallery-list__item-img-sec").attr("href", "comics/gallery/"+galleryImg[count_img] );
+						$(this).find(".gallery-list__item-img-sec").attr("style", 'background-image: url(comics/gallery-min/' + galleryImg[count_img] + ')');
+
+						count_img++;
+					});
+
+					$(".gallery-list__item-img_ins-fr").attr("rel");
+
+					$(".gallery-list").addClass("active");
+				}
+
+				$(".fanc-gall-img").fancybox();
+
 			});
-
-			//
-			var countElemGaler = $(".gallery-list__height .gallery-list__item").length;
-
-			if (countImg == countElemGaler) {
-
-			} else if (countImg > countElemGaler) {
-
-				//-- добавляем
-				var rathnCount = countImg - countElemGaler;
-
-				for (var rr = 0; rr < rathnCount; rr++) {
-
-					var znTrans = Math.random() * 1 + 1;
-
-					var galleryItem = elementGallery(znTrans, "", "", "", "", "clCreat");
-				 	$(".gallery-list__height").append(galleryItem);
-				}
-
-				setTimeout('$(".gallery-list__height .gallery-list__item").removeClass("clCreat"); heightGaller()', 2500);
-
-
-			} else {
-
-				//-- удаляем
-				var rathnCount = countElemGaler - countImg;
-
-				for (var rr = 0; rr < rathnCount; rr++) {
-
-					$(".gallery-list__height .gallery-list__item:eq(-" + (rr+1) + ")").addClass("clDelete");
-				}
-
-				setTimeout('$(".gallery-list__height .gallery-list__item.clDelete").remove(); heightGaller()', 2000);
-			}
-
-			//setTimeout("heightGaller()", 3000);		//---- плавная подстройка высоты галлереи
-
-
-			var count_img = 0;
-
-			if( $(".gallery-list").hasClass("active") ) {
-
-				$('.gallery-list__height .gallery-list__item').each(function(){
-
-					$(this).find(".gallery-list__item-img-sec").attr("href", "mmmmmmmmmmmmmmmmm");
-					$(this).find(".gallery-list__item-img-sec").attr("style", 'background-image: url(comics/gallery-min/' + galleryImg[count_img] + ')');
-
-					count_img++;
-				});
-
-				$(".gallery-list").removeClass("active");
-
-			} else {
-
-				$('.gallery-list__height .gallery-list__item').each(function(){
-
-					$(this).find(".gallery-list__item-img-sec").attr("href", "comics/gallery/"+galleryImg[count_img] );
-					$(this).find(".gallery-list__item-img-sec").attr("style", 'background-image: url(comics/gallery-min/' + galleryImg[count_img] + ')');
-
-					count_img++;
-				});
-
-				$(".gallery-list__item-img_ins-fr").attr("rel");
-
-				$(".gallery-list").addClass("active");
-			}
-
-			$(".fanc-gall-img").fancybox();
-
-		});
 
 		}
 	});
@@ -294,20 +281,25 @@ $(function () {
 
 
 	//==========  JQUERY ONLOAD
-
-	// $("body").queryLoader2({
-	// 	backgroundColor: "red",
-	// 	minimumTime: 2000,
-	// 	maxTime: 10000,
-	// 	fadeOutTime: 1000,
-	// 	onComplete: function(){
-
-	// 	},
-	// 	percentage: true,
-	// 	onProgress: function(percentage){
-	// 		console.log(percentage);
-	// 	}
-	// });
+	$("body").queryLoader2({
+		backgroundColor: "",
+		minimumTime: 1000,
+		maxTime: 7000,
+		fadeOutTime: 1000,
+		onComplete: function(){
+			
+			$(".preload-site").addClass("active");
+			$("html,body").removeClass("start");
+		},
+		percentage: true,
+		onProgress: function(percentage){
+			
+			var percCount = percentage.toFixed(0);
+			$(".preload-site__prel--count").html(percCount + "%");
+			$(".preload-site__prel").css({'width': percCount + "%"});
+			setTimeout('$(".preload-site").remove()', 10000);
+		}
+	});
 
 
 
@@ -442,7 +434,7 @@ $(".arrow-next").on("click", function(){
 			  .velocity({
 			    rotateX: '-20deg',
 			    rotateY: '+=' + deg_ret + 'deg'
-	}, 400);
+	}, 600);
 	
 });
 
@@ -452,7 +444,7 @@ $(".arrow-prew").on("click", function(){
 			  .velocity({
 			    rotateX: '-20deg',
 			    rotateY: '-=' + deg_ret + 'deg'
-	}, 400);
+	}, 600);
 	
 });
 
@@ -464,7 +456,7 @@ function puzzleBegin() {
 	$(".plitImage").removeClass("begin");
 	$(".plitImage li").css({"left": 0, "top": 0});
 
-	setTimeout("puzzleEnd()", 4000);
+	setTimeout("puzzleEnd()", 5000);
 }
 
 
@@ -594,5 +586,6 @@ function checkImg(){
 
     if ( notSovp == 1 ) {
         $(".plitImage").addClass("right");
+        $("#sortable li").draggable("destroy");
     }
 }
